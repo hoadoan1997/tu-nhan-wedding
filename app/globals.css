@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Color Palette: Dusty Blue Elegance */
+  --color-dusty-blue: #7B9CB8;
+  --color-light-steel: #B0C4DE;
+  --color-silver: #C0C0C0;
+  --color-muted-gold: #C9B99A;
+  --color-cool-white: #F8F9FA;
+  --color-ice-blue: #EDF2F7;
+  --color-dark-slate: #2D3748;
+  --color-slate-gray: #718096;
+  --color-warm-blush: #E8D5D0;
+
+  /* Typography */
+  --font-display: var(--font-playfair);
+  --font-script: var(--font-great-vibes);
+  --font-body: var(--font-cormorant);
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-dark-slate);
+  background-color: var(--color-cool-white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Masonry Grid Styles */
+.masonry-grid {
+  display: flex;
+  gap: 1rem;
+  width: auto;
+}
+
+.masonry-grid-column {
+  background-clip: padding-box;
+}
+
+.masonry-grid-column > * {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    gap: 1.5rem;
+  }
+
+  .masonry-grid-column > * {
+    margin-bottom: 1.5rem;
+  }
+}
