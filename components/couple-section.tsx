@@ -64,14 +64,14 @@ export function CoupleSection() {
             name="Nhan Tu"
             role="The Bride"
             bio="A creative soul who loves art, travel, and cherishing simple moments with family. She believes in true love and the value of walking through life together."
-            imageSrc="/images/wedding-02.jpg"
+            imageSrc="/images/couple-bride.jpg"
             delay={0.2}
           />
           <PersonCard
             name="Tu Nguyen"
             role="The Groom"
             bio="A tech-savvy guy who loves sports and discovering new things. He treasures every moment and is always ready to go the extra mile for the one he loves."
-            imageSrc="/images/wedding-03.jpg"
+            imageSrc="/images/couple-groom.jpg"
             delay={0.4}
           />
         </div>

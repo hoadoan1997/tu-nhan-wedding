@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
+import { FamilyInvitationSection } from "@/components/family-invitation-section"
 import { CoupleSection } from "@/components/couple-section"
 import { LoveStorySection } from "@/components/love-story-section"
 import { WeddingDetailsSection } from "@/components/wedding-details-section"
@@ -28,6 +29,7 @@ export default async function Home() {
   return (
     <main>
       <HeroSection />
+      <FamilyInvitationSection />
       <CoupleSection />
       <LoveStorySection />
       <WeddingDetailsSection />
