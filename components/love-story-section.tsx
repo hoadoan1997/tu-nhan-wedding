@@ -37,7 +37,7 @@ const storyMilestones = [
     side: "right" as const,
   },
   {
-    date: "December 2026",
+    date: "July 2026",
     title: "Our Big Day",
     description:
       "We will officially become husband and wife, starting a new chapter of our lives together. Thank you for being part of our journey!",

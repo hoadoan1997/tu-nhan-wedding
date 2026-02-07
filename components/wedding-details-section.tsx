@@ -71,19 +71,19 @@ export function WeddingDetailsSection() {
           <EventCard
             icon={<Church size={32} />}
             title="Ceremony"
-            venue="Notre-Dame Cathedral Basilica"
-            address="01 Cong xa Paris, Ben Nghe, District 1, Ho Chi Minh City"
-            datetime="5:00 PM - 6:00 PM, Saturday, December 31, 2026"
-            mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4948820622156!2d106.69831731411765!3d10.779573192317883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f4b3330bcc7%3A0x4db964d18e998774!2sNotre-Dame%20Cathedral%20Basilica%20of%20Saigon!5e0!3m2!1sen!2s"
+            venue="Holy Vietnamese Martyrs Catholic Church"
+            address="4545 Timmers Way, Norcross, GA 30093"
+            datetime="3:00 PM, Friday, July 17, 2026"
+            mapUrl="https://www.google.com/maps?q=Holy+Vietnamese+Martyrs+Catholic+Church,+4545+Timmers+Way,+Norcross,+GA+30093&output=embed"
             delay={0.2}
           />
           <EventCard
             icon={<PartyPopper size={32} />}
             title="Reception"
-            venue="GEM Center"
-            address="08 Nguyen Binh Khiem, Da Kao, District 1, Ho Chi Minh City"
-            datetime="7:00 PM - 9:00 PM, Saturday, December 31, 2026"
-            mapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5166851385384!2d106.70041!3d10.7876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f40a3b49dab%3A0xa1bd14e483a602db!2sGEM%20Center!5e0!3m2!1sen!2s"
+            venue="Canton House"
+            address="2255 Pleasant Hill Rd Ste 250, Duluth, GA 30096"
+            datetime="6:30 PM, Friday, July 17, 2026"
+            mapUrl="https://www.google.com/maps?q=Canton+House,+2255+Pleasant+Hill+Rd+Ste+250,+Duluth,+GA+30096&output=embed"
             delay={0.4}
           />
         </div>

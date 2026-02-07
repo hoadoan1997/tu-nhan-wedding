@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     default: "Tu Nguyen & Nhan Tu | Wedding",
     template: "%s | Tu Nguyen & Nhan Tu",
   },
-  description: "You are cordially invited to celebrate our wedding on December 31, 2026",
+  description: "You are cordially invited to celebrate our wedding on July 17, 2026",
   keywords: ["wedding", "Tu Nguyen", "Nhan Tu", "celebration"],
   authors: [{ name: "Tu Nguyen & Nhan Tu" }],
   openGraph: {
     type: "website",
     locale: "en_US",
     title: "Tu Nguyen & Nhan Tu Wedding",
-    description: "Join us on our special day — December 31, 2026!",
+    description: "Join us on our special day — July 17, 2026!",
     siteName: "Tu & Nhan Wedding",
     images: [
       {

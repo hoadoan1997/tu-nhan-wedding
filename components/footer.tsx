@@ -6,7 +6,7 @@ export function Footer() {
           Tu Nguyen & Nhan Tu
         </p>
         <p className="font-body text-sm text-slate-gray">
-          December 31, 2026 — Ho Chi Minh City
+          July 17, 2026 — Norcross, Georgia
         </p>
         <div className="w-16 h-0.5 bg-muted-gold mx-auto my-6" />
         <p className="font-body text-xs text-slate-gray">
