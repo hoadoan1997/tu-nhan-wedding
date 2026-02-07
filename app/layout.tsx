@@ -1,14 +1,14 @@
 import type { Metadata } from "next"
-import { Playfair_Display, Cormorant_Garamond, Great_Vibes } from "next/font/google"
+import { Lora, Cormorant_Garamond, Pinyon_Script } from "next/font/google"
 import { NavigationBar } from "@/components/navigation-bar"
 import { MusicToggle } from "@/components/music-toggle"
 import { Footer } from "@/components/footer"
 import "./globals.css"
 
-const playfair = Playfair_Display({
+const lora = Lora({
   subsets: ["latin", "vietnamese"],
   display: "swap",
-  variable: "--font-playfair",
+  variable: "--font-lora",
 })
 
 const cormorant = Cormorant_Garamond({
@@ -18,11 +18,11 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
 })
 
-const greatVibes = Great_Vibes({
+const pinyonScript = Pinyon_Script({
   subsets: ["latin", "vietnamese"],
   weight: "400",
   display: "swap",
-  variable: "--font-great-vibes",
+  variable: "--font-pinyon-script",
 })
 
 export const metadata: Metadata = {
@@ -65,7 +65,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${cormorant.variable} ${greatVibes.variable} scroll-smooth`}
+      className={`${lora.variable} ${cormorant.variable} ${pinyonScript.variable} scroll-smooth`}
     >
       <body>
         <NavigationBar />

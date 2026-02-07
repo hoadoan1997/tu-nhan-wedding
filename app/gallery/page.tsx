@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
-import { GalleryGrid } from "@/components/gallery-grid"
 import { GalleryLightbox } from "@/components/gallery-lightbox"
 
 export const metadata = {
@@ -45,9 +44,7 @@ export default function GalleryPage() {
         </div>
 
         {/* Gallery */}
-        <GalleryGrid>
-          <GalleryLightbox photos={galleryPhotos} />
-        </GalleryGrid>
+        <GalleryLightbox photos={galleryPhotos} />
       </div>
     </main>
   )

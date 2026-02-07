@@ -13,9 +13,9 @@
   --color-warm-blush: #E8D5D0;
 
   /* Typography */
-  --font-display: var(--font-playfair);
-  --font-script: var(--font-great-vibes);
-  --font-body: var(--font-cormorant);
+  --font-display: var(--font-cormorant);
+  --font-script: var(--font-pinyon-script);
+  --font-body: var(--font-lora);
 }
 
 body {

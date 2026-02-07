@@ -14,7 +14,13 @@
       "Bash(cd:*)",
       "Bash(cd /Users/MAC/Documents/claude\\\\ code/wedding_website && npx eslint:*)",
       "Bash(wc:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: initialize Next.js 15 wedding website\n\nInitial setup of modern wedding website with:\n- Next.js 15 + TypeScript + Tailwind CSS v4 + Framer Motion\n- Homepage \\(hero, couple bio, love story, event details, gift registry, guestbook\\)\n- Gallery page \\(masonry grid with lightbox\\)\n- RSVP page \\(form with Google Sheets API integration\\)\n- Dusty Blue Elegance theme\n- Security: rate limiting, honeypot anti-spam, input sanitization\n- 23 wedding photos included\n- Development infrastructure with ESLint, TypeScript config\n- Claude Code orchestration setup \\(.claude/\\)\nEOF\n\\)\")",
+      "Bash(curl:*)",
+      "Bash(npx next dev:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

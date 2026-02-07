@@ -33,7 +33,7 @@ const storyMilestones = [
     title: "The Proposal",
     description:
       "A romantic evening by the sea, he got down on one knee and proposed. The happiest moment of our lives.",
-    imageSrc: "/images/wedding-07.jpg",
+    imageSrc: "/images/wedding-12.jpg",
     side: "right" as const,
   },
   {
@@ -41,7 +41,7 @@ const storyMilestones = [
     title: "Our Big Day",
     description:
       "We will officially become husband and wife, starting a new chapter of our lives together. Thank you for being part of our journey!",
-    imageSrc: "/images/wedding-08.jpg",
+    imageSrc: "/images/wedding-09.jpg",
     side: "left" as const,
   },
 ]

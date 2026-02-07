@@ -8,10 +8,11 @@ interface PersonCardProps {
   role: string
   bio: string
   imageSrc: string
+  imagePosition?: string
   delay: number
 }
 
-function PersonCard({ name, role, bio, imageSrc, delay }: PersonCardProps) {
+function PersonCard({ name, role, bio, imageSrc, imagePosition = "center", delay }: PersonCardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -26,6 +27,7 @@ function PersonCard({ name, role, bio, imageSrc, delay }: PersonCardProps) {
           alt={`${name} portrait`}
           fill
           className="object-cover"
+          style={{ objectPosition: imagePosition }}
           sizes="(max-width: 768px) 256px, 320px"
         />
       </div>
@@ -61,17 +63,18 @@ export function CoupleSection() {
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-16">
           <PersonCard
-            name="Nhan Tu"
-            role="The Bride"
-            bio="A creative soul who loves art, travel, and cherishing simple moments with family. She believes in true love and the value of walking through life together."
-            imageSrc="/images/couple-bride.jpg"
+            name="Tu Nguyen"
+            role="The Groom"
+            bio="A passionate tattoo artist who turns skin into canvas. He pours his heart into every design and brings the same creativity and dedication to the ones he loves."
+            imageSrc="/images/couple-groom.jpg"
+            imagePosition="top"
             delay={0.2}
           />
           <PersonCard
-            name="Tu Nguyen"
-            role="The Groom"
-            bio="A tech-savvy guy who loves sports and discovering new things. He treasures every moment and is always ready to go the extra mile for the one he loves."
-            imageSrc="/images/couple-groom.jpg"
+            name="Nhan Tu"
+            role="The Bride"
+            bio="A dedicated healthcare professional who cares for others with warmth and compassion. She believes in nurturing both body and soul, and cherishes every moment with family."
+            imageSrc="/images/couple-bride.jpg"
             delay={0.4}
           />
         </div>
