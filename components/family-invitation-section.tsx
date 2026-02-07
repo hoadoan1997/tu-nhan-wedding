@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 export function FamilyInvitationSection() {
   return (
-    <section className="py-16 md:py-24 bg-dark-slate">
+    <section className="py-16 md:py-24 bg-[#3D2B2E]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Parents */}
         <motion.div

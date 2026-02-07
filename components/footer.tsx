@@ -1,6 +1,6 @@
 export function Footer() {
   return (
-    <footer className="bg-dark-slate text-ice-blue py-12">
+    <footer className="bg-[#3D2B2E] text-ice-blue py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="font-script text-3xl text-dusty-blue mb-4">
           Tu Nguyen & Nhan Tu
