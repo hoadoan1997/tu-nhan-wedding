@@ -34,7 +34,7 @@ export function NavigationBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo / Couple Names */}
-          <Link href="/" className="font-script text-2xl text-dusty-blue">
+          <Link href="/" className={`font-script text-2xl transition-colors ${scrolled ? "text-dusty-blue" : "text-white drop-shadow-sm"}`}>
             Tu & Nhan
           </Link>
 
@@ -44,7 +44,7 @@ export function NavigationBar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="font-body text-dark-slate hover:text-dusty-blue transition-colors"
+                className={`font-body hover:text-dusty-blue transition-colors ${scrolled ? "text-dark-slate" : "text-white drop-shadow-sm"}`}
               >
                 {link.label}
               </Link>
@@ -54,7 +54,7 @@ export function NavigationBar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-dark-slate"
+            className={`md:hidden ${scrolled ? "text-dark-slate" : "text-white drop-shadow-sm"}`}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
