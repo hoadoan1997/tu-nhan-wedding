@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Color Palette: Dusty Blue Elegance */
-  --color-dusty-blue: #7B9CB8;
-  --color-light-steel: #B0C4DE;
-  --color-silver: #C0C0C0;
+  /* Color Palette: Dusty Rose Elegance */
+  --color-dusty-blue: #C4919B;
+  --color-light-steel: #E8C4C8;
+  --color-silver: #D4B8BD;
   --color-muted-gold: #C9B99A;
-  --color-cool-white: #F8F9FA;
-  --color-ice-blue: #EDF2F7;
+  --color-cool-white: #FDF8F8;
+  --color-ice-blue: #F9EDEF;
   --color-dark-slate: #2D3748;
   --color-slate-gray: #718096;
   --color-warm-blush: #E8D5D0;
