@@ -7,7 +7,7 @@ The wedding website is a hybrid Next.js application combining server-side data f
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    Client Browser                        │
-│  (Hero, Couple, Story, Details, Gallery, Guestbook)    │
+│ (Hero, Couple, Story, Details, Gallery, RSVP, Seating) │
 └────────────────────────┬────────────────────────────────┘
                          │
                     HTTP/HTTPS
@@ -19,6 +19,7 @@ The wedding website is a hybrid Next.js application combining server-side data f
 │  │  • / (homepage, server-rendered)                   │
 │  │  • /gallery (client-side lightbox)                 │
 │  │  • /rsvp (RSVP form, client-side)                  │
+│  │  • /seating (venue floor plan, client-side)       │
 │  │  • /api/submit-rsvp (POST endpoint)                │
 │  └─────────────────────────────────────────────────────┤
 │  ┌─────────────────────────────────────────────────────┤
@@ -57,6 +58,14 @@ The wedding website is a hybrid Next.js application combining server-side data f
   - Form with honeypot field
   - Client-side validation before submission
   - Spinner feedback during submission
+
+- **Seating** (`app/seating/page.tsx`)
+  - Loads 12-table floor plan from `public/data/seating.json`
+  - Interactive search with Vietnamese diacritics support
+  - Highlights specific guest avatar and auto-scrolls to table
+  - Radial CSS positioning of avatars around round tables
+  - Decorative dance floor, stage, trees, and flowers
+  - Mobile horizontal scroll with gradient hint
 
 - **Global Features**
   - Music toggle (client-side state)
@@ -125,6 +134,12 @@ layout.tsx (root)
 | gallery-grid | Client | Image grid layout |
 | gallery-lightbox | Client | Lightbox viewer |
 | countdown-timer | Client | Days/hours/minutes to wedding |
+| seating-search | Client | Guest name search with fuzzy matching |
+| venue-floor-plan | Client | 1400×1050px canvas with 12 tables |
+| round-table | Client | Circular table with radial guest avatars |
+| guest-avatar | Client | Avatar component dispatching by role |
+| guest-avatar-variants | Client | 8 inline SVG avatar styles |
+| venue-decorations | Client | Dance floor, stage, trees, flowers SVGs |
 
 ## Data Flow
 
@@ -160,6 +175,23 @@ Reverse (newest first), slice (max 12)
 Pass to GuestbookSection component
   ↓
 Render in browser
+```
+
+### Seating Lookup Flow
+```
+Seating page load (app/seating/page.tsx)
+  ↓
+Client: Fetch /data/seating.json
+  ↓
+Parse tables array (12 tables with guests)
+  ↓
+Guest types search for 2+ chars
+  ↓
+Match guest name (Vietnamese diacritics support)
+  ↓
+Highlight matched guest avatar, auto-scroll to table
+  ↓
+Display search result card with table info
 ```
 
 ## Environment Configuration

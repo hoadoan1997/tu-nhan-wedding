@@ -11,6 +11,9 @@
   --color-dark-slate: #2D3748;
   --color-slate-gray: #718096;
   --color-warm-blush: #E8D5D0;
+  --color-burgundy: #6B3A40;
+  --color-cream: #FDF8F0;
+  --color-sage-green: #7A9E7E;
 
   /* Typography */
   --font-display: var(--font-cormorant);

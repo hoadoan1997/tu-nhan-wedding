@@ -1,0 +1,170 @@
+{
+  "tables": [
+    {
+      "number": 1,
+      "name": "Table of Honor",
+      "guests": [
+        { "name": "Nguyễn Văn Tú", "role": "groom" },
+        { "name": "Tú Nhân", "role": "bride" },
+        { "name": "Nguyễn Văn Hùng", "role": "elder-male" },
+        { "name": "Trần Thị Mai", "role": "elder-female" },
+        { "name": "Tú Văn Minh", "role": "elder-male" },
+        { "name": "Lê Thị Hương", "role": "elder-female" }
+      ]
+    },
+    {
+      "number": 2,
+      "name": "Family Elders",
+      "guests": [
+        { "name": "Nguyễn Văn Bình", "role": "elder-male" },
+        { "name": "Trần Thị Lan", "role": "elder-female" },
+        { "name": "Phạm Văn Đức", "role": "elder-male" },
+        { "name": "Lê Thị Ngọc", "role": "elder-female" },
+        { "name": "Võ Văn Thắng", "role": "elder-male" },
+        { "name": "Đặng Thị Hồng", "role": "elder-female" },
+        { "name": "Bùi Văn Quang", "role": "elder-male" },
+        { "name": "Hoàng Thị Yến", "role": "elder-female" }
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Parents' Friends",
+      "guests": [
+        { "name": "Trần Văn Long", "role": "elder-male" },
+        { "name": "Nguyễn Thị Thanh", "role": "elder-female" },
+        { "name": "Lý Văn Phước", "role": "elder-male" },
+        { "name": "Đỗ Thị Tuyết", "role": "elder-female" },
+        { "name": "Phan Văn Hải", "role": "elder-male" },
+        { "name": "Vũ Thị Kim", "role": "elder-female" },
+        { "name": "Hồ Văn Sơn", "role": "elder-male" },
+        { "name": "Dương Thị Phương", "role": "elder-female" }
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Bride's Cousins",
+      "guests": [
+        { "name": "Tú Minh Châu", "role": "female" },
+        { "name": "Tú Hoàng Anh", "role": "male" },
+        { "name": "Tú Thanh Trúc", "role": "female" },
+        { "name": "Tú Quốc Bảo", "role": "male" },
+        { "name": "Tú Ngọc Hân", "role": "female" },
+        { "name": "Tú Đình Khoa", "role": "male" },
+        { "name": "Tú Phương Linh", "role": "female" },
+        { "name": "Tú Bảo Ngọc", "role": "female" }
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Groom's Cousins",
+      "guests": [
+        { "name": "Nguyễn Minh Tuấn", "role": "male" },
+        { "name": "Nguyễn Thị Hạnh", "role": "female" },
+        { "name": "Nguyễn Đức Thịnh", "role": "male" },
+        { "name": "Nguyễn Ngọc Trâm", "role": "female" },
+        { "name": "Nguyễn Hoàng Phúc", "role": "male" },
+        { "name": "Nguyễn Thị Diễm", "role": "female" },
+        { "name": "Nguyễn Văn Khải", "role": "male" },
+        { "name": "Nguyễn Thùy Linh", "role": "female" }
+      ]
+    },
+    {
+      "number": 6,
+      "name": "College Friends",
+      "guests": [
+        { "name": "Lê Quang Huy", "role": "male" },
+        { "name": "Trần Đức Anh", "role": "male" },
+        { "name": "Phạm Minh Khôi", "role": "male" },
+        { "name": "Ngô Thị Thảo", "role": "female" },
+        { "name": "Đặng Hữu Nam", "role": "male" },
+        { "name": "Bùi Thị Trang", "role": "female" },
+        { "name": "Vương Quốc Việt", "role": "male" },
+        { "name": "Mai Thị Hằng", "role": "female" }
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Work Friends",
+      "guests": [
+        { "name": "Huỳnh Thanh Phong", "role": "male" },
+        { "name": "Lâm Thị Ngân", "role": "female" },
+        { "name": "Cao Minh Đạt", "role": "male" },
+        { "name": "Trương Thị Vy", "role": "female" },
+        { "name": "Đinh Công Thành", "role": "male" },
+        { "name": "Tạ Thị Mỹ Duyên", "role": "female" },
+        { "name": "Lưu Văn Tài", "role": "male" },
+        { "name": "Châu Thị Kim Ngân", "role": "female" }
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Church Friends",
+      "guests": [
+        { "name": "Nguyễn Văn Hiếu", "role": "male" },
+        { "name": "Trần Thị Ánh", "role": "female" },
+        { "name": "Lê Văn Đạo", "role": "male" },
+        { "name": "Phạm Thị Ân", "role": "female" },
+        { "name": "Võ Thành Nhân", "role": "male" },
+        { "name": "Đỗ Thị Hiền", "role": "female" },
+        { "name": "Bùi Văn Trọng", "role": "male" },
+        { "name": "Hoàng Thị Cúc", "role": "female" }
+      ]
+    },
+    {
+      "number": 9,
+      "name": "High School Friends",
+      "guests": [
+        { "name": "Phan Quốc Dũng", "role": "male" },
+        { "name": "Vũ Thị Huyền", "role": "female" },
+        { "name": "Hồ Minh Trí", "role": "male" },
+        { "name": "Dương Thị Bích", "role": "female" },
+        { "name": "Lý Hoàng Long", "role": "male" },
+        { "name": "Đặng Thị Thủy", "role": "female" },
+        { "name": "Ngô Văn Phát", "role": "male" },
+        { "name": "Mai Thị Liên", "role": "female" }
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Neighborhood Friends",
+      "guests": [
+        { "name": "Trịnh Văn Hòa", "role": "male" },
+        { "name": "Lê Thị Cẩm Tú", "role": "female" },
+        { "name": "Nguyễn Văn Tâm", "role": "male" },
+        { "name": "Phạm Thị Bích Ngọc", "role": "female" },
+        { "name": "Trần Văn Phú", "role": "male" },
+        { "name": "Võ Thị Kiều", "role": "female" },
+        { "name": "Đỗ Văn Lộc", "role": "male" },
+        { "name": "Bùi Thị Sen", "role": "female" }
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Extended Family",
+      "guests": [
+        { "name": "Huỳnh Văn Tường", "role": "male" },
+        { "name": "Lâm Thị Xuân", "role": "female" },
+        { "name": "Cao Văn Thọ", "role": "elder-male" },
+        { "name": "Trương Thị Mai", "role": "elder-female" },
+        { "name": "Đinh Văn Lực", "role": "male" },
+        { "name": "Tạ Thị Oanh", "role": "female" },
+        { "name": "Lưu Văn Phúc", "role": "male" },
+        { "name": "Châu Thị Lan", "role": "female" }
+      ]
+    },
+    {
+      "number": 12,
+      "name": "New Friends",
+      "guests": [
+        { "name": "Đoàn Minh Quân", "role": "male" },
+        { "name": "Kiều Thị Hoa", "role": "female" },
+        { "name": "Thái Văn Bắc", "role": "male" },
+        { "name": "La Thị Mộng", "role": "female" },
+        { "name": "Tôn Đức Thắng", "role": "male" },
+        { "name": "Nông Thị Hà", "role": "female" },
+        { "name": "Âu Dương Phong", "role": "male" },
+        { "name": "Triệu Thị Vân", "role": "female" }
+      ]
+    }
+  ]
+}

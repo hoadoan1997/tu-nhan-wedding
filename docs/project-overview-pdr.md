@@ -27,6 +27,7 @@ A modern, elegant wedding website showcasing the couple's love story, event deta
 | Homepage | `/` | Landing page with full wedding showcase |
 | Gallery | `/gallery` | Photo gallery with lightbox |
 | RSVP | `/rsvp` | Guest registration form |
+| Seating | `/seating` | Interactive venue floor plan with guest search |
 
 ### Homepage Sections
 - Hero Section — Couple names, wedding date, call-to-action
@@ -35,6 +36,15 @@ A modern, elegant wedding website showcasing the couple's love story, event deta
 - Wedding Details — Date, time, location, map
 - Gift Registry — Registry links and information
 - Guestbook Section — Recent guest messages
+
+### Seating Feature
+- 12-table venue floor plan with top-down SVG visualization
+- Search guests by name with Vietnamese diacritics support (normalization via NFD)
+- Auto-highlighting of guest avatar on matched search result
+- Auto-scroll to matched table with smooth centering
+- 8 guest role avatars (groom, bride, male, female, elder-male, elder-female, boy, girl)
+- Decorative elements: dance floor, stage, trees, flowers with subtle animations
+- Mobile-responsive horizontal scroll with gradient hints
 
 ### Data Flow
 - RSVP Form → Google Sheets (append-only)

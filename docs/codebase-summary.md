@@ -8,6 +8,7 @@ wedding_website/
 │   ├── page.tsx                  # Homepage (main scroll page)
 │   ├── gallery/page.tsx          # Gallery route
 │   ├── rsvp/page.tsx             # RSVP form route
+│   ├── seating/page.tsx          # Venue floor plan route
 │   ├── layout.tsx                # Root layout wrapper
 │   ├── template.tsx              # Global template (music, nav)
 │   └── api/submit-rsvp/route.ts  # RSVP submission endpoint
@@ -27,7 +28,13 @@ wedding_website/
 │   ├── navigation-bar.tsx
 │   ├── music-toggle.tsx
 │   ├── scroll-indicator.tsx
-│   └── footer.tsx
+│   ├── footer.tsx
+│   ├── seating-search.tsx        # Guest search for seating chart
+│   ├── venue-floor-plan.tsx      # Top-down 12-table layout canvas
+│   ├── round-table.tsx           # Circular table with radial guest seats
+│   ├── guest-avatar.tsx          # Avatar dispatcher by guest role
+│   ├── guest-avatar-variants.tsx # 8 SVG avatar components
+│   └── venue-decorations.tsx     # Dance floor, stage, trees, flowers
 ├── lib/                          # Utility functions
 │   ├── google-sheets.ts          # Google Sheets API client
 │   └── utils.ts                  # Helper utilities (cn for clsx)
@@ -47,17 +54,25 @@ wedding_website/
 - `app/page.tsx` — Server component fetching guestbook from Google Sheets
 - `app/gallery/page.tsx` — Gallery page with grid and lightbox
 - `app/rsvp/page.tsx` — RSVP form page
+- `app/seating/page.tsx` — Interactive venue floor plan with guest search
 - `app/api/submit-rsvp/route.ts` — POST endpoint with validation & rate limiting
 
-### Component Library (16 components)
+### Component Library (20+ components)
 - **Layout**: navigation-bar, footer, scroll-indicator
 - **Sections**: hero, couple, love-story, wedding-details, gift-registry, guestbook
+- **Seating**: seating-search, venue-floor-plan, round-table, guest-avatar, guest-avatar-variants, venue-decorations
 - **Forms**: rsvp-form, gallery (grid + lightbox)
 - **Utilities**: countdown-timer, music-toggle, map-embed, timeline-card
 
 ### Data Integration
 - `lib/google-sheets.ts` — Handles authentication, append, and read operations
 - Requires env vars: `GOOGLE_SHEETS_CLIENT_EMAIL`, `GOOGLE_SHEETS_PRIVATE_KEY`, `GOOGLE_SHEET_ID`
+- `public/data/seating.json` — 12 tables with guest name/role for venue floor plan
+
+### Data Types (lib/utils.ts)
+- `Guest` — `{ name: string, role: GuestRole }`
+- `GuestRole` — "groom" | "bride" | "male" | "female" | "elder-male" | "elder-female" | "boy" | "girl"
+- `SeatingTable` — `{ number: number, name: string, guests: Guest[] }`
 
 ## Dependencies
 
