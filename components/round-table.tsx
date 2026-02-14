@@ -53,23 +53,23 @@ export function RoundTable({ table, highlightedGuest, size = 280 }: RoundTablePr
               top: size / 2 + y - 24,
               width: 48,
             }}
-            animate={isHighlighted ? { scale: 1.15 } : { scale: 1 }}
+            animate={isHighlighted ? { scale: 1.25, zIndex: 10 } : { scale: 1, zIndex: 1 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             <GuestAvatar
               role={guest.role}
               highlighted={isHighlighted}
-              className="w-10 h-10"
+              className={isHighlighted ? "w-12 h-12" : "w-10 h-10"}
             />
             <span
               className={cn(
-                "text-[9px] leading-tight text-center mt-0.5 max-w-[60px] truncate font-body",
+                "leading-tight text-center mt-0.5 font-body",
                 isHighlighted
-                  ? "text-muted-gold font-semibold"
-                  : "text-dark-slate/70"
+                  ? "text-[11px] text-muted-gold font-bold max-w-[100px] whitespace-nowrap drop-shadow-sm"
+                  : "text-[9px] text-dark-slate/70 max-w-[60px] truncate"
               )}
             >
-              {guest.name.split(" ").slice(-1)[0]}
+              {isHighlighted ? guest.name : guest.name.split(" ").slice(-1)[0]}
             </span>
           </motion.div>
         )
