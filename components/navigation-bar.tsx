@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Gallery", href: "/gallery" },
   { label: "Slideshow", href: "/slideshow" },
   { label: "Find Seat", href: "/seating" },
+  { label: "QR Sign", href: "/seating/qr-sign" },
   { label: "RSVP", href: "/rsvp" },
 ]
 

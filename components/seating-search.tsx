@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { Search } from "lucide-react"
 import { removeDiacritics, type SeatingTable } from "@/lib/utils"
 
 interface SearchResult {
@@ -53,48 +52,33 @@ export function SeatingSearch({ tables, autoFocus = false }: SeatingSearchProps)
 
   return (
     <div className="mb-12">
-      {/* Search input */}
-      <div className="relative max-w-md mx-auto">
-        <Search
-          size={20}
-          className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-gray"
-        />
+      {/* Minimal underline-only search input */}
+      <div className="max-w-sm mx-auto">
         <input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           aria-label="Search guest name"
-          placeholder="Type your name to find your seat..."
+          placeholder="Search by name"
           autoFocus={autoFocus}
-          className="w-full pl-12 pr-4 py-3 border border-silver rounded-lg bg-white font-body text-dark-slate placeholder:text-slate-gray/60 focus:outline-none focus:ring-2 focus:ring-dusty-blue/30 focus:border-dusty-blue transition-colors"
+          className="w-full bg-transparent text-center font-body text-lg text-dusty-blue placeholder:text-slate-gray/50 border-0 border-b border-slate-gray/40 pb-2 focus:outline-none focus:border-dusty-blue transition-colors"
         />
       </div>
 
-      {/* Results */}
-      <div className="max-w-md mx-auto mt-4" aria-live="polite" role="status">
+      {/* Results as plain centered lines: "Name | Table N" */}
+      <div className="max-w-md mx-auto mt-6 text-center" aria-live="polite" role="status">
         <AnimatePresence mode="popLayout">
           {results.map((r) => (
-            <motion.div
+            <motion.p
               key={`${r.guestName}-${r.tableNumber}`}
-              initial={{ opacity: 0, y: -8 }}
+              initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              className="bg-white rounded-xl shadow-md p-6 border border-light-steel mb-3"
+              exit={{ opacity: 0, y: -6 }}
+              className="font-body text-lg text-slate-gray py-1.5"
             >
-              <p className="font-body text-slate-gray text-sm mb-1">
-                Welcome,
-              </p>
-              <p className="font-display text-2xl text-dusty-blue mb-2">
-                {r.guestName}
-              </p>
-              <p className="font-body text-dark-slate">
-                You&apos;re at{" "}
-                <span className="font-semibold text-dusty-blue">
-                  Table {r.tableNumber}
-                </span>{" "}
-                &mdash; {r.tableName}
-              </p>
-            </motion.div>
+              {r.guestName} <span className="text-slate-gray/60">|</span>{" "}
+              <span className="text-dusty-blue">Table {r.tableNumber}</span>
+            </motion.p>
           ))}
 
           {query.trim().length >= 2 && results.length === 0 && (
@@ -103,7 +87,7 @@ export function SeatingSearch({ tables, autoFocus = false }: SeatingSearchProps)
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="text-center font-body text-slate-gray py-4"
+              className="font-body text-slate-gray py-4"
             >
               No guest found for &ldquo;{query}&rdquo;. Please check the
               spelling or ask the couple for help.

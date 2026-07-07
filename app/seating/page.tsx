@@ -1,8 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import Image from "next/image"
 import { SeatingSearch } from "@/components/seating-search"
 import type { SeatingTable } from "@/lib/utils"
 
@@ -31,25 +30,30 @@ export default function SeatingPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-ice-blue pt-24 pb-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="mb-12 text-center">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-dusty-blue hover:text-light-steel transition-colors mb-6"
-          >
-            <ArrowLeft size={20} />
-            <span className="font-body">Back to Home</span>
-          </Link>
+    <main className="min-h-screen bg-ice-blue pb-16">
+      {/* Full-width couple photo banner (same photo as the home hero) */}
+      <div className="relative h-56 md:h-80 w-full">
+        <Image
+          src="/images/wedding-01.jpg"
+          alt="Tu Nguyen & Nhan Tu"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        {/* Soft fade into the page background */}
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-ice-blue" />
+      </div>
 
-          <h1 className="font-display text-4xl md:text-5xl text-dusty-blue mb-4">
-            Find Your Seat
-          </h1>
-          <div className="w-24 h-1 bg-muted-gold mx-auto" />
-          <p className="font-body text-lg text-slate-gray mt-4">
-            Search your name below to find your table assignment
+      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+        {/* Header — minimal, matching the printed QR sign */}
+        <div className="mb-10 text-center">
+          <p className="font-script text-5xl md:text-6xl text-dusty-blue">
+            Tu &amp; Nhan
           </p>
+          <h1 className="font-body text-2xl md:text-3xl text-dusty-blue tracking-wide mt-6">
+            Please find your seat
+          </h1>
         </div>
 
         {error && (
