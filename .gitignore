@@ -81,3 +81,9 @@ ck.md
 # Large media dirs
 video/
 image/
+
+# MiniMax MCP config (contains API key)
+.mcp.json
+
+# Raw AI-generated output (staging dir)
+public/minimax-output/

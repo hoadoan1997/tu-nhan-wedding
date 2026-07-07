@@ -20,7 +20,11 @@
       "Bash(npx next dev:*)",
       "Bash(lsof:*)",
       "Bash(xargs kill:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npx vercel --prod)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "minimax"
+  ]
 }
