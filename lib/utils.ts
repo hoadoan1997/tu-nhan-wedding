@@ -24,6 +24,8 @@ export interface Guest {
 export interface SeatingTable {
   number: number
   name: string
+  /** Optional human hint for finding the table in the hall, e.g. "Near the stage, left side" */
+  location?: string
   guests: Guest[]
 }
 

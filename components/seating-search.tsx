@@ -3,12 +3,8 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { removeDiacritics, type SeatingTable } from "@/lib/utils"
-
-interface SearchResult {
-  guestName: string
-  tableNumber: number
-  tableName: string
-}
+import { CoupleIllustration } from "@/components/couple-illustration"
+import { SeatingResultCard, type MatchedGuest } from "@/components/seating-result-card"
 
 interface SeatingSearchProps {
   tables: SeatingTable[]
@@ -38,7 +34,7 @@ export function SeatingSearch({ tables, autoFocus = false }: SeatingSearchProps)
   const normalizedQuery = removeDiacritics(query).toLowerCase().trim()
   const queryWords = normalizedQuery.split(/\s+/).filter(Boolean)
 
-  const results: SearchResult[] = normalizedQuery.length >= 2
+  const results: MatchedGuest[] = normalizedQuery.length >= 2
     ? tables.flatMap((table) =>
         table.guests
           .filter((guest) => nameMatches(guest.name, queryWords))
@@ -46,14 +42,25 @@ export function SeatingSearch({ tables, autoFocus = false }: SeatingSearchProps)
             guestName: guest.name,
             tableNumber: table.number,
             tableName: table.name,
+            tableLocation: table.location,
+            tablemates: table.guests
+              .filter((g) => g.name !== guest.name)
+              .map((g) => g.name),
           }))
       )
     : []
 
+  const guestCount = tables.reduce((sum, t) => sum + t.guests.length, 0)
+  const singleMatch = results.length === 1 ? results[0] : null
+
   return (
     <div className="mb-12">
-      {/* Minimal underline-only search input */}
-      <div className="max-w-sm mx-auto">
+      {/* Bride & groom — sway idle, celebrate when a table is found */}
+      <CoupleIllustration celebrating={singleMatch !== null} />
+
+      {/* Minimal underline-only search input; accent line draws out from
+          the center on focus (group-focus-within drives the scale) */}
+      <div className="group relative max-w-sm mx-auto mt-4">
         <input
           type="text"
           value={query}
@@ -61,25 +68,59 @@ export function SeatingSearch({ tables, autoFocus = false }: SeatingSearchProps)
           aria-label="Search guest name"
           placeholder="Search by name"
           autoFocus={autoFocus}
-          className="w-full bg-transparent text-center font-body text-lg text-dusty-blue placeholder:text-slate-gray/50 border-0 border-b border-slate-gray/40 pb-2 focus:outline-none focus:border-dusty-blue transition-colors"
+          className="w-full bg-transparent text-center font-body text-lg text-dusty-blue placeholder:text-slate-gray/50 border-0 border-b border-slate-gray/40 pb-2 focus:outline-none"
+        />
+        <span
+          aria-hidden
+          className="absolute bottom-0 left-0 w-full h-px bg-dusty-blue origin-center scale-x-0 group-focus-within:scale-x-100 transition-transform duration-500 ease-out"
         />
       </div>
 
-      {/* Results as plain centered lines: "Name | Table N" */}
-      <div className="max-w-md mx-auto mt-6 text-center" aria-live="polite" role="status">
-        <AnimatePresence mode="popLayout">
-          {results.map((r) => (
+      {/* Results */}
+      <div className="max-w-md mx-auto mt-8 text-center" aria-live="polite" role="status">
+        <AnimatePresence mode="wait">
+          {/* Empty state before typing */}
+          {query.trim().length < 2 && guestCount > 0 && (
             <motion.p
-              key={`${r.guestName}-${r.tableNumber}`}
+              key="empty-hint"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="font-body text-sm text-slate-gray/70"
+            >
+              {guestCount} guests · {tables.length} tables — try typing your first name
+            </motion.p>
+          )}
+
+          {/* Exactly one guest → full welcome card with envelope reveal */}
+          {singleMatch && (
+            <motion.div key={`card-${singleMatch.guestName}-${singleMatch.tableNumber}`}>
+              <SeatingResultCard guest={singleMatch} />
+            </motion.div>
+          )}
+
+          {/* Several guests → compact pick list */}
+          {results.length > 1 && (
+            <motion.div
+              key="multi"
               initial={{ opacity: 0, y: -6 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
-              className="font-body text-lg text-slate-gray py-1.5"
             >
-              {r.guestName} <span className="text-slate-gray/60">|</span>{" "}
-              <span className="text-dusty-blue">Table {r.tableNumber}</span>
-            </motion.p>
-          ))}
+              {results.map((r) => (
+                <p
+                  key={`${r.guestName}-${r.tableNumber}`}
+                  className="font-body text-lg text-slate-gray py-1.5"
+                >
+                  {r.guestName} <span className="text-slate-gray/60">|</span>{" "}
+                  <span className="text-dusty-blue">Table {r.tableNumber}</span>
+                </p>
+              ))}
+              <p className="font-body text-xs text-slate-gray/70 mt-3">
+                Type the full name to see your table details
+              </p>
+            </motion.div>
+          )}
 
           {query.trim().length >= 2 && results.length === 0 && (
             <motion.p

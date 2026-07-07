@@ -1,6 +1,4 @@
-import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, Printer } from "lucide-react"
 
 export const metadata = {
   title: "Find Your Seat — QR Sign",
@@ -8,55 +6,51 @@ export const metadata = {
   robots: { index: false, follow: false },
 }
 
-/* Ink-safe (dark text on white) so it survives cheap print shops that drop background fills */
+/* Mirrors the /seating page look: full-width couple photo banner fading
+   into the rose background, script names, and dusty-rose text. */
 export default function QrSignPage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* On-screen only helper — never printed */}
-      <div className="print:hidden bg-ice-blue py-3 px-4 flex items-center justify-between max-w-3xl mx-auto">
-        <Link
-          href="/seating"
-          className="inline-flex items-center gap-2 text-dusty-blue hover:text-light-steel transition-colors"
-        >
-          <ArrowLeft size={18} />
-          <span className="font-body text-sm">Back to Find Your Seat</span>
-        </Link>
-        <span className="inline-flex items-center gap-2 text-slate-gray font-body text-sm">
-          <Printer size={16} />
-          Press Cmd/Ctrl+P to print
-        </span>
-      </div>
-
+    <main className="min-h-screen bg-ice-blue">
       {/* Printable A4 sign */}
-      <div className="qr-sign-page max-w-2xl mx-auto py-16 px-8 text-center">
-        <div className="w-44 h-44 rounded-full overflow-hidden mx-auto border-2 border-muted-gold/60">
+      <div className="qr-sign-page bg-ice-blue max-w-2xl mx-auto text-center">
+        {/* Full-width couple photo banner, same as /seating */}
+        <div className="qr-sign-banner relative h-64 w-full">
           <Image
             src="/images/wedding-01.jpg"
             alt="Tu Nguyen & Nhan Tu"
-            width={176}
-            height={176}
-            className="w-full h-full object-cover"
+            fill
+            priority
+            sizes="(max-width: 672px) 100vw, 672px"
+            className="object-cover object-center"
           />
+          {/* Soft fade into the rose background */}
+          <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-b from-transparent to-ice-blue" />
         </div>
 
-        <p className="font-display text-3xl text-dark-slate mt-6">Tu Nguyen &amp; Nhan Tu</p>
+        <div className="px-8 pt-8 pb-14">
+          <p className="font-script text-5xl text-dusty-blue">Tu Nguyen &amp; Nhan Tu</p>
 
-        <h1 className="font-script text-6xl text-burgundy mt-4">Please Find Your Seat</h1>
+          <h1 className="font-body text-3xl text-dusty-blue tracking-wide mt-6">
+            Please find your seat
+          </h1>
 
-        <div className="w-24 h-1 bg-muted-gold mx-auto my-8" />
+          <div className="w-24 h-1 bg-muted-gold mx-auto my-8" />
 
-        <img
-          src="/images/qr-seating.svg"
-          alt="QR code to find your seat"
-          width={320}
-          height={320}
-          className="mx-auto"
-        />
+          {/* White card behind the QR keeps scanner contrast on the rose background */}
+          <div className="inline-block bg-white rounded-2xl p-5 border border-muted-gold/40">
+            <img
+              src="/images/qr-seating.svg"
+              alt="QR code to find your seat"
+              width={300}
+              height={300}
+            />
+          </div>
 
-        <div className="mt-10 font-body text-lg text-dark-slate space-y-2">
-          <p>1. Open your phone camera</p>
-          <p>2. Scan the code</p>
-          <p>3. Type your name to find your table</p>
+          <div className="mt-10 font-body text-lg text-slate-gray space-y-2">
+            <p>1. Open your phone camera</p>
+            <p>2. Scan the code</p>
+            <p>3. Type your name to find your table</p>
+          </div>
         </div>
       </div>
 
@@ -66,10 +60,19 @@ export default function QrSignPage() {
           margin: 0;
         }
         @media print {
+          /* Force the rose background and photo to actually print */
+          .qr-sign-page,
+          .qr-sign-page * {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
           .qr-sign-page {
             width: 100%;
             max-width: none;
-            padding: 15mm;
+            min-height: 297mm; /* fill the whole A4 sheet with the background */
+          }
+          .qr-sign-banner {
+            height: 80mm;
           }
         }
       `}</style>

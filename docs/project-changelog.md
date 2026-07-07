@@ -2,6 +2,23 @@
 
 All notable changes to the wedding website are documented here.
 
+## [2026-07-07 evening] — Seating Page Redesign + Animations + QR Sign Restyle
+
+### Added
+- `/seating` redesigned to minimal centered layout: couple photo banner (parallax), handwriting-reveal couple names, underline-only search input with focus draw effect
+- Animated SVG bride & groom (`couple-illustration.tsx`): idle sway + floating hearts; celebrates (arms raised, bouquet toss) when a table is found
+- Welcome result card (`seating-result-card.tsx`) on single match: envelope-open reveal, petal burst, odometer-rolling table number, table name, optional table location, tablemates list
+- Ambient falling petals (`falling-petals.tsx`), reduced-motion aware
+- Empty-state hint (guest/table counts); multi-match stays a compact pick list
+- "QR Sign" link added to main navigation
+- `SeatingTable.location?` optional field for hall-position hints (data to be provided)
+
+### Changed
+- `/seating/qr-sign` restyled to mirror the seating page: photo banner, rose background (forced via `print-color-adjust: exact`, full-A4 fill), QR on white card for scan contrast; helper bar removed
+- Display names now "Tu Nguyen & Nhan Tu" on both pages
+
+---
+
 ## [2026-07-07] — QR Code for Find Your Seat + Floor Plan Removal + Search Fix
 
 ### Added
