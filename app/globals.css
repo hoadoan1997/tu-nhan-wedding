@@ -55,3 +55,12 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.5rem;
   }
 }
+
+/* Print: hide global site chrome on printable pages (e.g. /seating/qr-sign) */
+@media print {
+  nav,
+  footer,
+  #music-toggle-button {
+    display: none !important;
+  }
+}

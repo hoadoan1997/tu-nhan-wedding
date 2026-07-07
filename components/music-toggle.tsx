@@ -34,6 +34,7 @@ export function MusicToggle({ audioSrc }: { audioSrc: string }) {
     <>
       <audio ref={audioRef} src={audioSrc} loop />
       <button
+        id="music-toggle-button"
         onClick={toggle}
         className="fixed bottom-6 right-6 z-50 bg-dusty-blue text-white p-4 rounded-full shadow-lg hover:bg-light-steel transition-colors"
         aria-label={playing ? "Mute music" : "Play music"}

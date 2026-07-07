@@ -4,14 +4,14 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { SeatingSearch } from "@/components/seating-search"
-import { VenueFloorPlan } from "@/components/venue-floor-plan"
 import type { SeatingTable } from "@/lib/utils"
 
 export default function SeatingPage() {
   const [tables, setTables] = useState<SeatingTable[]>([])
-  const [highlightedTable, setHighlightedTable] = useState<number | null>(null)
-  const [highlightedGuest, setHighlightedGuest] = useState<string | null>(null)
   const [error, setError] = useState("")
+  const [fromQr] = useState(
+    () => typeof window !== "undefined" && new URLSearchParams(window.location.search).get("src") === "qr"
+  )
 
   useEffect(() => {
     const controller = new AbortController()
@@ -29,14 +29,6 @@ export default function SeatingPage() {
       })
     return () => controller.abort()
   }, [])
-
-  /* Auto-scroll to highlighted table */
-  useEffect(() => {
-    if (highlightedTable) {
-      document.getElementById(`table-${highlightedTable}`)
-        ?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" })
-    }
-  }, [highlightedTable])
 
   return (
     <main className="min-h-screen bg-ice-blue pt-24 pb-16">
@@ -65,19 +57,7 @@ export default function SeatingPage() {
         )}
 
         {/* Search */}
-        <SeatingSearch
-          tables={tables}
-          onTableHighlight={setHighlightedTable}
-          onGuestHighlight={setHighlightedGuest}
-        />
-
-        {/* Venue Floor Plan */}
-        {tables.length > 0 && (
-          <VenueFloorPlan
-            tables={tables}
-            highlightedGuest={highlightedGuest}
-          />
-        )}
+        <SeatingSearch tables={tables} autoFocus={fromQr} />
       </div>
     </main>
   )

@@ -13,21 +13,36 @@ interface SearchResult {
 
 interface SeatingSearchProps {
   tables: SeatingTable[]
-  onTableHighlight: (tableNumber: number | null) => void
-  onGuestHighlight?: (guestName: string | null) => void
+  autoFocus?: boolean
 }
 
-export function SeatingSearch({ tables, onTableHighlight, onGuestHighlight }: SeatingSearchProps) {
+/**
+ * Match query words against a contiguous run of EXACT name words only — no
+ * substrings, no prefixes. Diacritic-stripped Vietnamese words collide often
+ * ("Nguyễn"→"nguyen" contains "yen"; "Trịnh"→"trinh" and "Triệu"→"trieu" both
+ * *start with* "tri"), so both `.includes()` and `.startsWith()` produce
+ * false matches between genuinely different names once accents are gone.
+ * Sliding the exact-word window across name-word positions still lets a full
+ * name like "Hồ Văn Sơn" or a partial "Văn Sơn" match, not just one word.
+ */
+function nameMatches(name: string, queryWords: string[]): boolean {
+  const nameWords = removeDiacritics(name).toLowerCase().split(/\s+/)
+  for (let start = 0; start <= nameWords.length - queryWords.length; start++) {
+    if (queryWords.every((w, i) => nameWords[start + i] === w)) return true
+  }
+  return false
+}
+
+export function SeatingSearch({ tables, autoFocus = false }: SeatingSearchProps) {
   const [query, setQuery] = useState("")
 
-  const results: SearchResult[] = query.trim().length >= 2
+  const normalizedQuery = removeDiacritics(query).toLowerCase().trim()
+  const queryWords = normalizedQuery.split(/\s+/).filter(Boolean)
+
+  const results: SearchResult[] = normalizedQuery.length >= 2
     ? tables.flatMap((table) =>
         table.guests
-          .filter((guest) =>
-            removeDiacritics(guest.name).toLowerCase().includes(
-              removeDiacritics(query).toLowerCase()
-            )
-          )
+          .filter((guest) => nameMatches(guest.name, queryWords))
           .map((guest) => ({
             guestName: guest.name,
             tableNumber: table.number,
@@ -35,27 +50,6 @@ export function SeatingSearch({ tables, onTableHighlight, onGuestHighlight }: Se
           }))
       )
     : []
-
-  const handleChange = (value: string) => {
-    setQuery(value)
-    if (value.trim().length < 2) {
-      onTableHighlight(null)
-      onGuestHighlight?.(null)
-      return
-    }
-    // Find first matching guest + table
-    const normalized = removeDiacritics(value).toLowerCase()
-    let matchedGuest: string | null = null
-    const firstMatch = tables.find((t) =>
-      t.guests.some((g) => {
-        const match = removeDiacritics(g.name).toLowerCase().includes(normalized)
-        if (match && !matchedGuest) matchedGuest = g.name
-        return match
-      })
-    )
-    onTableHighlight(firstMatch?.number ?? null)
-    onGuestHighlight?.(matchedGuest)
-  }
 
   return (
     <div className="mb-12">
@@ -68,9 +62,10 @@ export function SeatingSearch({ tables, onTableHighlight, onGuestHighlight }: Se
         <input
           type="text"
           value={query}
-          onChange={(e) => handleChange(e.target.value)}
+          onChange={(e) => setQuery(e.target.value)}
           aria-label="Search guest name"
           placeholder="Type your name to find your seat..."
+          autoFocus={autoFocus}
           className="w-full pl-12 pr-4 py-3 border border-silver rounded-lg bg-white font-body text-dark-slate placeholder:text-slate-gray/60 focus:outline-none focus:ring-2 focus:ring-dusty-blue/30 focus:border-dusty-blue transition-colors"
         />
       </div>
