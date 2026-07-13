@@ -1,7 +1,6 @@
 import { HeroSection } from "@/components/hero-section"
 import { FamilyInvitationSection } from "@/components/family-invitation-section"
 import { CoupleSection } from "@/components/couple-section"
-import { LoveStorySection } from "@/components/love-story-section"
 import { VideoSection } from "@/components/video-section"
 import { WeddingDetailsSection } from "@/components/wedding-details-section"
 import { GiftRegistrySection } from "@/components/gift-registry-section"
@@ -32,7 +31,6 @@ export default async function Home() {
       <HeroSection />
       <FamilyInvitationSection />
       <CoupleSection />
-      <LoveStorySection />
       <VideoSection />
       <WeddingDetailsSection />
       <GiftRegistrySection />

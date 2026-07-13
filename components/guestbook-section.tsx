@@ -25,14 +25,16 @@ export function GuestbookSection({ entries }: GuestbookSectionProps) {
           className="text-center mb-12"
         >
           <h2 className="font-display text-4xl md:text-5xl text-dusty-blue mb-4">
-            Guestbook
+            Guest Book
           </h2>
           <div className="w-24 h-1 bg-muted-gold mx-auto" />
+          <p className="font-body text-lg text-slate-gray mt-6 max-w-xl mx-auto">
+            Please proceed to the photobooth and leave us your name and message
+          </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {entries.length > 0 ? (
-            entries.map((entry, idx) => (
+          {entries.map((entry, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 50 }}
@@ -54,12 +56,7 @@ export function GuestbookSection({ entries }: GuestbookSectionProps) {
                   {entry.message}
                 </p>
               </motion.div>
-            ))
-          ) : (
-            <p className="col-span-full text-center text-slate-gray font-body">
-              No wishes yet. Be the first to send your blessings!
-            </p>
-          )}
+          ))}
         </div>
       </div>
     </section>

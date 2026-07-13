@@ -16,7 +16,7 @@ export default function QrSignPage() {
         {/* Full-width couple photo banner, same as /seating */}
         <div className="qr-sign-banner relative h-64 w-full">
           <Image
-            src="/images/wedding-01.jpg"
+            src="/images/hero-couple-2026.jpg"
             alt="Tu Nguyen & Nhan Tu"
             fill
             priority

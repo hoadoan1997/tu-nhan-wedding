@@ -23,6 +23,9 @@ export function FallingPetals() {
   const [petals, setPetals] = useState<Petal[]>([])
 
   useEffect(() => {
+    // Random values must be generated after mount — rendering them on the
+    // server would hydration-mismatch. One extra render at mount is intended.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPetals(
       Array.from({ length: PETAL_COUNT }, () => ({
         left: Math.random() * 100,

@@ -41,16 +41,16 @@ export default function SeatingPage() {
       <FallingPetals />
 
       {/* Full-width couple photo banner (same photo as the home hero) */}
-      <div ref={bannerRef} className="relative h-56 md:h-80 w-full overflow-hidden">
+      <div ref={bannerRef} className="relative h-56 md:h-[28rem] w-full overflow-hidden">
         {/* Oversized + translated for parallax without exposing edges */}
         <motion.div style={{ y: bannerY }} className="absolute inset-0 scale-125">
           <Image
-            src="/images/wedding-01.jpg"
+            src="/images/hero-couple-2026.jpg"
             alt="Tu Nguyen & Nhan Tu"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-center md:object-[center_68%]"
           />
         </motion.div>
         {/* Soft fade into the page background */}

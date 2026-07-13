@@ -87,3 +87,4 @@ image/
 
 # Raw AI-generated output (staging dir)
 public/minimax-output/
+.playwright-mcp/

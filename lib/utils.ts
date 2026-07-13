@@ -14,16 +14,14 @@ export function removeDiacritics(str: string): string {
     .replace(/Đ/g, "D")
 }
 
-export type GuestRole = "groom" | "bride" | "male" | "female" | "elder-male" | "elder-female" | "boy" | "girl"
-
 export interface Guest {
   name: string
-  role: GuestRole
 }
 
 export interface SeatingTable {
   number: number
-  name: string
+  /** Optional display name; the official seating chart uses numbers only */
+  name?: string
   /** Optional human hint for finding the table in the hall, e.g. "Near the stage, left side" */
   location?: string
   guests: Guest[]

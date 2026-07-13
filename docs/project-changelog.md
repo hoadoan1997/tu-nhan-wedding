@@ -2,6 +2,30 @@
 
 All notable changes to the wedding website are documented here.
 
+## [2026-07-13] — Client Feedback Round 1 (5 items)
+
+### Added
+- New couple photo `public/images/hero-couple-2026.jpg` (compressed from client's `WAFU3678 re.jpg`, 2560px) — now used by home hero, `/seating` banner, and QR sign banner. Gallery keeps the old photo set. QR code unchanged (URL identical); reprint the sign to show the new photo.
+- `components/order-of-events-timeline.tsx` — centered vertical "Order of Events" timeline (alternating entries, line-art icons): 3:00 PM Prenuptial Mass (church + address), 6:30 PM Cocktail Hours (photobooth note + menu), 7:30 PM Wedding Party Entrance, 8:30 PM Dance Floor Open/Karaoke. Addresses link to Google Maps.
+
+### Changed
+- Wedding Details section replaced venue cards + map embeds with the Order of Events timeline (client decision: timeline only, no maps)
+- Guest Book heading now "Guest Book" with subtitle "Please proceed to the photobooth and leave us your name and message"; wishes grid kept, "No wishes yet" empty-state line removed
+- `/seating` banner on desktop: taller (`md:h-[28rem]`) with image focus shifted down (`md:object-[center_68%]`) so the couple is fully visible above the fade; mobile crop unchanged
+- `public/data/seating.json` replaced sample data with the official Seating Chart: **26 tables, 259 guests** (tables 1–24, 26, 28 + vendor table 25; 23/27 empty in the chart). Bride/Groom seats mapped to "Nhan Tu (Bride)" / "Tu Nguyen (Groom)". Verification table: `plans/reports/seating-data-conversion-260713-2059-guest-list-verification-report.md`
+- `SeatingTable.name` is now optional (official chart has numbers only); result card hides the table-name line when absent. `Guest.role`/`GuestRole` removed (unused since floor plan removal)
+- Tablemates now filtered by seat index (real chart has identical names at one table, e.g. two "Con dì Loan"); multi-match list keys de-duped
+
+### Removed
+- Our Story section (`love-story-section.tsx`, `timeline-card.tsx`) and its nav link
+- `map-embed.tsx` (no longer referenced after details rewrite)
+
+### Added (Feedback 6 — venue mini-map)
+- `components/venue-mini-map.tsx` — theme-colored SVG floor plan traced from Canton House "Ballroom A + B" PDF: 28 tables, stage + sweetheart table, right-wall service blocks, three double doors on the bottom wall, reception + room label in the lobby strip. Guest's table highlighted (burgundy, pin drop, pulse ring); shown inside the seating result card. Tap opens a fullscreen overlay (portal to body) rendered wide with horizontal swipe, auto-scrolled to the guest's table — designed for the scan-QR-on-phone flow
+
+### Pending
+- Menu for 7:30 PM Wedding Party Entrance (client to provide)
+
 ## [2026-07-07 evening] — Seating Page Redesign + Animations + QR Sign Restyle
 
 ### Added

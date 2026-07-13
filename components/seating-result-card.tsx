@@ -1,11 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { VenueMiniMap } from "@/components/venue-mini-map"
 
 export interface MatchedGuest {
   guestName: string
   tableNumber: number
-  tableName: string
+  tableName?: string
   tableLocation?: string
   tablemates: string[]
 }
@@ -117,10 +118,15 @@ export function SeatingResultCard({ guest }: { guest: MatchedGuest }) {
         <p className="font-body text-2xl text-burgundy">
           Table <RollingNumber value={guest.tableNumber} delay={0.7} />
         </p>
-        <p className="font-body text-sm text-slate-gray mt-1">{guest.tableName}</p>
+        {guest.tableName && (
+          <p className="font-body text-sm text-slate-gray mt-1">{guest.tableName}</p>
+        )}
         {guest.tableLocation && (
           <p className="font-body text-sm text-slate-gray mt-1">📍 {guest.tableLocation}</p>
         )}
+
+        {/* Where the table sits in the hall */}
+        <VenueMiniMap tableNumber={guest.tableNumber} />
 
         {guest.tablemates.length > 0 && (
           <div className="mt-6">

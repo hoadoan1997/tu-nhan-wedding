@@ -33,7 +33,7 @@ export function HeroSection() {
       {/* Background layer — parallax photo (always present as base/poster) */}
       <motion.div style={{ y }} className="absolute inset-0 -z-10">
         <Image
-          src="/images/wedding-01.jpg"
+          src="/images/hero-couple-2026.jpg"
           alt="Wedding celebration"
           fill
           priority

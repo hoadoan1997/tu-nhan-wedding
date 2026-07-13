@@ -37,14 +37,17 @@ export function SeatingSearch({ tables, autoFocus = false }: SeatingSearchProps)
   const results: MatchedGuest[] = normalizedQuery.length >= 2
     ? tables.flatMap((table) =>
         table.guests
-          .filter((guest) => nameMatches(guest.name, queryWords))
-          .map((guest) => ({
+          .map((guest, seatIndex) => ({ guest, seatIndex }))
+          .filter(({ guest }) => nameMatches(guest.name, queryWords))
+          .map(({ guest, seatIndex }) => ({
             guestName: guest.name,
             tableNumber: table.number,
             tableName: table.name,
             tableLocation: table.location,
+            // Filter by seat, not by name — the real chart has identical
+            // names at one table (e.g. two "Con dì Loan")
             tablemates: table.guests
-              .filter((g) => g.name !== guest.name)
+              .filter((_, i) => i !== seatIndex)
               .map((g) => g.name),
           }))
       )
@@ -107,9 +110,9 @@ export function SeatingSearch({ tables, autoFocus = false }: SeatingSearchProps)
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -6 }}
             >
-              {results.map((r) => (
+              {results.map((r, idx) => (
                 <p
-                  key={`${r.guestName}-${r.tableNumber}`}
+                  key={`${r.guestName}-${r.tableNumber}-${idx}`}
                   className="font-body text-lg text-slate-gray py-1.5"
                 >
                   {r.guestName} <span className="text-slate-gray/60">|</span>{" "}
