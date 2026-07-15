@@ -23,18 +23,23 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
     }
   }, [targetDate])
 
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft())
+  // Start null so the server and the first client render match. Computing the
+  // countdown from Date.now() during render makes SSR and hydration disagree
+  // (a few seconds apart) and throws a hydration error. The real values are
+  // filled in after mount.
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null)
 
   useEffect(() => {
+    setTimeLeft(calculateTimeLeft())
     const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000)
     return () => clearInterval(timer)
   }, [calculateTimeLeft])
 
   const timeUnits = [
-    { label: "Days", value: timeLeft.days },
-    { label: "Hours", value: timeLeft.hours },
-    { label: "Minutes", value: timeLeft.minutes },
-    { label: "Seconds", value: timeLeft.seconds },
+    { label: "Days", value: timeLeft?.days },
+    { label: "Hours", value: timeLeft?.hours },
+    { label: "Minutes", value: timeLeft?.minutes },
+    { label: "Seconds", value: timeLeft?.seconds },
   ]
 
   return (
@@ -42,7 +47,7 @@ export function CountdownTimer({ targetDate }: { targetDate: Date }) {
       {timeUnits.map(({ label, value }) => (
         <div key={label} className="text-center">
           <div className="text-4xl md:text-6xl font-display text-white">
-            {String(value).padStart(2, "0")}
+            {value === undefined ? "--" : String(value).padStart(2, "0")}
           </div>
           <div className="text-sm md:text-base text-ice-blue uppercase tracking-wider mt-2">
             {label}

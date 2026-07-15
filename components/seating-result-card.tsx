@@ -1,7 +1,12 @@
 "use client"
 
+import { useState } from "react"
+import Link from "next/link"
 import { motion } from "framer-motion"
+import { CalendarDays, UtensilsCrossed } from "lucide-react"
 import { VenueMiniMap } from "@/components/venue-mini-map"
+import { EventDetailModal } from "@/components/event-detail-modal"
+import { DINNER_MENU } from "@/components/reception-menu-data"
 
 export interface MatchedGuest {
   guestName: string
@@ -89,6 +94,8 @@ function RollingNumber({ value, delay }: { value: number; delay: number }) {
  * envelope, shown when the search narrows to exactly one guest.
  */
 export function SeatingResultCard({ guest }: { guest: MatchedGuest }) {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
     <div className="relative mx-auto max-w-sm" style={{ perspective: 800 }}>
       <PetalBurst />
@@ -142,7 +149,36 @@ export function SeatingResultCard({ guest }: { guest: MatchedGuest }) {
         <p className="font-script text-xl text-dusty-blue mt-6">
           We&apos;re so happy you&apos;re here
         </p>
+
+        {/* Quick links: jump to the reception schedule, or peek at the menu */}
+        <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <Link
+            href="/#details"
+            className="inline-flex items-center gap-2 rounded-full border border-muted-gold/60 bg-white/60 px-5 py-2.5 font-body text-sm text-dusty-blue transition-colors hover:border-muted-gold hover:bg-muted-gold/10"
+          >
+            <CalendarDays size={16} strokeWidth={1.5} />
+            View Schedule
+          </Link>
+          <button
+            type="button"
+            onClick={() => setMenuOpen(true)}
+            className="inline-flex items-center gap-2 rounded-full border border-muted-gold/60 bg-white/60 px-5 py-2.5 font-body text-sm text-dusty-blue transition-colors hover:border-muted-gold hover:bg-muted-gold/10"
+          >
+            <UtensilsCrossed size={16} strokeWidth={1.5} />
+            View Menu
+          </button>
+        </div>
       </motion.div>
+
+      <EventDetailModal
+        open={menuOpen}
+        onClose={() => setMenuOpen(false)}
+        title={DINNER_MENU.heading}
+        heading={DINNER_MENU.heading}
+        headerIcon={<UtensilsCrossed size={26} strokeWidth={1.5} />}
+        numbered={DINNER_MENU.numbered}
+        items={DINNER_MENU.items}
+      />
     </div>
   )
 }

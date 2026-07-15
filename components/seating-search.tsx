@@ -12,18 +12,17 @@ interface SeatingSearchProps {
 }
 
 /**
- * Match query words against a contiguous run of EXACT name words only — no
- * substrings, no prefixes. Diacritic-stripped Vietnamese words collide often
- * ("Nguyễn"→"nguyen" contains "yen"; "Trịnh"→"trinh" and "Triệu"→"trieu" both
- * *start with* "tri"), so both `.includes()` and `.startsWith()` produce
- * false matches between genuinely different names once accents are gone.
- * Sliding the exact-word window across name-word positions still lets a full
- * name like "Hồ Văn Sơn" or a partial "Văn Sơn" match, not just one word.
+ * Typeahead match: each query word must be a PREFIX of a name word, across a
+ * contiguous run of name words. So "ton" suggests "Tony", and "van son"
+ * matches "Hồ Văn Sơn". Prefix (not `.includes()`) keeps diacritic-stripped
+ * collisions in check — e.g. "yen" won't match inside "Nguyễn"→"nguyen" — while
+ * still surfacing partial input as suggestions (the multi-match pick list lets
+ * the guest choose when several names share a prefix, like "Trịnh"/"Triệu").
  */
 function nameMatches(name: string, queryWords: string[]): boolean {
   const nameWords = removeDiacritics(name).toLowerCase().split(/\s+/)
   for (let start = 0; start <= nameWords.length - queryWords.length; start++) {
-    if (queryWords.every((w, i) => nameWords[start + i] === w)) return true
+    if (queryWords.every((w, i) => nameWords[start + i].startsWith(w))) return true
   }
   return false
 }

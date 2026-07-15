@@ -1,13 +1,33 @@
 "use client"
 
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { Church, MapPin, Martini, Sparkles, Music } from "lucide-react"
+import {
+  Church,
+  MapPin,
+  Martini,
+  Sparkles,
+  Music,
+  Car,
+  UtensilsCrossed,
+  Heart,
+  ChevronRight,
+  Camera,
+  Wine,
+  CupSoda,
+  Utensils,
+} from "lucide-react"
+import { EventDetailModal, type ModalItem } from "@/components/event-detail-modal"
+import { DINNER_MENU } from "@/components/reception-menu-data"
 
 interface TimelineEvent {
   time: string
   title: string
   icon: React.ReactNode
   details?: string[]
+  // When set, the entry shows a button that opens a popup with the full detail
+  // (cocktail-hour offerings, dinner menu) — keeps the timeline row compact.
+  modal?: { label: string; heading?: string; numbered?: boolean; items: ModalItem[] }
   venue?: { name: string; address: string; mapQuery: string }
 }
 
@@ -23,13 +43,9 @@ const events: TimelineEvent[] = [
     },
   },
   {
-    time: "6:30 PM",
-    title: "Cocktail Hours",
-    icon: <Martini size={26} strokeWidth={1.5} />,
-    details: [
-      "Please proceed to the photobooth and leave us your name and message",
-      "Menu: milk tea, bánh tráng trộn, bắp xào",
-    ],
+    time: "6:00 PM",
+    title: "Travel to Reception",
+    icon: <Car size={26} strokeWidth={1.5} />,
     venue: {
       name: "Canton House",
       address: "2255 Pleasant Hill Rd Ste 250, Duluth, GA 30096",
@@ -37,14 +53,56 @@ const events: TimelineEvent[] = [
     },
   },
   {
+    time: "6:30 PM",
+    title: "Greeting & Cocktail Hour",
+    icon: <Martini size={26} strokeWidth={1.5} />,
+    modal: {
+      label: "View details",
+      items: [
+        {
+          icon: <Camera size={18} strokeWidth={1.5} />,
+          label: "Photos",
+          text: "Pictures with us, then photo booth",
+        },
+        {
+          icon: <Wine size={18} strokeWidth={1.5} />,
+          label: "Bar",
+          text: "Casamigo Reposado, Hennessy VSOP",
+        },
+        {
+          icon: <CupSoda size={18} strokeWidth={1.5} />,
+          label: "Non-Alcohol",
+          text: "Coke, Diet Coke, Sprite, Jasmine Milk Tea",
+        },
+        {
+          icon: <Utensils size={18} strokeWidth={1.5} />,
+          label: "Childhood Snacks",
+          text: "Bánh tráng trộn (rice paper salad), bắp xào (stir-fried corn)",
+        },
+      ],
+    },
+  },
+  {
     time: "7:30 PM",
-    title: "Wedding Party Entrance",
+    title: "Wedding Party Entrance & Family Introduction",
     icon: <Sparkles size={26} strokeWidth={1.5} />,
   },
   {
+    time: "7:45 PM",
+    title: "Dinner",
+    icon: <UtensilsCrossed size={26} strokeWidth={1.5} />,
+    modal: { label: "View menu", ...DINNER_MENU },
+  },
+  {
     time: "8:30 PM",
-    title: "Dance Floor Open, Karaoke",
+    title: "Party Time",
     icon: <Music size={26} strokeWidth={1.5} />,
+    details: ["Dance Floor Open, Karaoke"],
+  },
+  {
+    time: "10:30 PM",
+    title: "Reception Ends",
+    icon: <Heart size={26} strokeWidth={1.5} />,
   },
 ]
 
@@ -73,6 +131,8 @@ function VenueLine({ venue }: { venue: NonNullable<TimelineEvent["venue"]> }) {
  * entries alternating left/right with the icon mirrored on the other side.
  */
 export function OrderOfEventsTimeline() {
+  const [active, setActive] = useState<TimelineEvent | null>(null)
+
   return (
     <div className="max-w-2xl mx-auto">
       <div className="relative">
@@ -91,6 +151,18 @@ export function OrderOfEventsTimeline() {
                   {line}
                 </p>
               ))}
+              {event.modal && (
+                <button
+                  type="button"
+                  onClick={() => setActive(event)}
+                  className="group/btn mt-3 inline-flex items-center gap-1 font-body text-sm text-dusty-blue hover:text-burgundy transition-colors"
+                >
+                  <span className="border-b border-muted-gold/60 pb-0.5 group-hover/btn:border-burgundy">
+                    {event.modal.label}
+                  </span>
+                  <ChevronRight size={15} strokeWidth={1.5} />
+                </button>
+              )}
               {event.venue && <VenueLine venue={event.venue} />}
             </div>
           )
@@ -145,6 +217,17 @@ export function OrderOfEventsTimeline() {
           July 17, 2026 · Duluth, GA
         </p>
       </motion.div>
+
+      <EventDetailModal
+        open={active !== null}
+        onClose={() => setActive(null)}
+        title={active?.title ?? ""}
+        time={active?.time}
+        heading={active?.modal?.heading}
+        headerIcon={active?.icon}
+        numbered={active?.modal?.numbered}
+        items={active?.modal?.items ?? []}
+      />
     </div>
   )
 }

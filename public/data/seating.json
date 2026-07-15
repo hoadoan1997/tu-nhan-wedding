@@ -22,10 +22,10 @@
           "name": "Mợ Jamie"
         },
         {
-          "name": "Con trai Phú Em"
+          "name": "Con trai chú Phú Em"
         },
         {
-          "name": "Con Gái Phú Em"
+          "name": "Con Gái chú Phú Em"
         },
         {
           "name": "Cậu Giao"
@@ -42,13 +42,13 @@
           "name": "Dì Loan"
         },
         {
-          "name": "Chồng dì Loan"
+          "name": "Chú Liêm"
         },
         {
-          "name": "Con dì Loan"
+          "name": "Con dì loan"
         },
         {
-          "name": "Con dì Loan"
+          "name": "Con dì loan"
         },
         {
           "name": "Dì Irene"
@@ -98,10 +98,10 @@
           "name": "Em Hòa"
         },
         {
-          "name": "Ba Nathan (Minh Nguyen)"
+          "name": "Minh Nguyen (Ba Nathan)"
         },
         {
-          "name": "Mẹ Nathan (Jenny Pham)"
+          "name": "Jenny Pham (Mẹ Nathan)"
         }
       ]
     },
@@ -176,16 +176,16 @@
       "number": 6,
       "guests": [
         {
-          "name": "Queenie"
+          "name": "Queenie Ou"
         },
         {
-          "name": "Tommy"
+          "name": "Tommy Nguyen"
         },
         {
-          "name": "Ying"
+          "name": "Ying Ou"
         },
         {
-          "name": "Ying's bf"
+          "name": "Jimmy Haboon"
         },
         {
           "name": "Tong"
@@ -217,10 +217,10 @@
           "name": "Linh Nguyễn"
         },
         {
-          "name": "Hiếu Phạm"
+          "name": "HIếu Phạm"
         },
         {
-          "name": "Vợ A. Hiếu"
+          "name": "Vợ anh Hiếu Phạm"
         },
         {
           "name": "Ty Lê"
@@ -246,34 +246,37 @@
       "number": 8,
       "guests": [
         {
-          "name": "Bác Đông"
+          "name": "Bác Đông Đặng"
         },
         {
-          "name": "Chị Trân"
+          "name": "Chị Trân (bác Đông)"
         },
         {
           "name": "Quân (Bác Đông)"
         },
         {
-          "name": "Bác Lâm"
+          "name": "Bác Vũ Lâm"
         },
         {
           "name": "Kiera"
         },
         {
-          "name": "Chị Vy"
+          "name": "Vy Nguyễn"
         },
         {
-          "name": "Anh Hưng"
+          "name": "Anh Hưng Hồ"
         },
         {
-          "name": "Annie"
+          "name": "Annie Do"
         },
         {
           "name": "Peter Chen"
         },
         {
-          "name": "Elana"
+          "name": "Elana Vo"
+        },
+        {
+          "name": "Ivy Vo"
         }
       ]
     },
@@ -325,10 +328,10 @@
           "name": "Chồng cô Yến"
         },
         {
-          "name": "Cậu Dương"
+          "name": "Chau Lam (Cậu Dương )"
         },
         {
-          "name": "Vợ cậu Dương"
+          "name": "Binh Doan (Vợ cậu Dương)"
         },
         {
           "name": "Baba"
@@ -392,7 +395,7 @@
           "name": "Louisa"
         },
         {
-          "name": "Christina Lau"
+          "name": "Christina lau"
         },
         {
           "name": "Danny Lau"
@@ -491,10 +494,7 @@
           "name": "Gede Rahesta"
         },
         {
-          "name": "Kadek Yuli"
-        },
-        {
-          "name": "Kaylie"
+          "name": "Kadek Yuli, Kaylie"
         },
         {
           "name": "Chloe"
@@ -532,13 +532,13 @@
           "name": "Chen Yu Mi"
         },
         {
-          "name": "Jessie"
+          "name": "Jiayi Huang"
         },
         {
-          "name": "Phuong"
+          "name": "Phuong Nguyen"
         },
         {
-          "name": "Mary"
+          "name": "Mary Wang"
         },
         {
           "name": "June Wang"
@@ -553,7 +553,7 @@
           "name": "Eric Wu"
         },
         {
-          "name": "Tony"
+          "name": "Tony Wang"
         }
       ]
     },
@@ -593,7 +593,7 @@
       "number": 18,
       "guests": [
         {
-          "name": "叔 Chú Cường (Florida)"
+          "name": "煒叔Chú Cường (Florida)"
         },
         {
           "name": "煒叔 Cô Mai"
@@ -605,13 +605,13 @@
           "name": "煒叔 Bà ngoại Vivian"
         },
         {
-          "name": "煒叔 Kelly"
+          "name": "煒叔 - Kelly"
         },
         {
           "name": "Ryan (Uncle Joseph's family)"
         },
         {
-          "name": "Chú Xuyên (Uncle Joseph's family)"
+          "name": "Chú Xuyên (Uncle Joseph's Family)"
         },
         {
           "name": "Dì Dung (Uncle Joseph's family)"
@@ -634,7 +634,7 @@
           "name": "Chú Thượng Nguyễn"
         },
         {
-          "name": "C. Melisa Dương"
+          "name": "Melisa Dương (Chị Diệu)"
         },
         {
           "name": "Mikayla"
@@ -643,7 +643,7 @@
           "name": "Alex"
         },
         {
-          "name": "A. Stephen Dương"
+          "name": "Stephen Dương (Anh Trung)"
         },
         {
           "name": "Tấn Nguyễn"
@@ -672,13 +672,10 @@
           "name": "Chú Hiếu"
         },
         {
-          "name": "Giang"
+          "name": "Giang Nguyen"
         },
         {
-          "name": "Quan"
-        },
-        {
-          "name": "Elianna"
+          "name": "Quan, Elianna"
         },
         {
           "name": "Dì Mai Lâm"
@@ -687,16 +684,16 @@
           "name": "Chú Michael Ly"
         },
         {
-          "name": "Kelly"
+          "name": "Kelly Trinh"
         },
         {
-          "name": "Mia"
+          "name": "Mia Trinh"
         },
         {
-          "name": "Dượng"
+          "name": "Dượng Denis Trinh"
         },
         {
-          "name": "Mí Día"
+          "name": "Binh Lam"
         }
       ]
     },
@@ -725,16 +722,13 @@
           "name": "Má Yến"
         },
         {
-          "name": "Hector"
+          "name": "Hector, Heinrich"
         },
         {
-          "name": "Heinrich"
+          "name": "Linh Trịnh"
         },
         {
-          "name": "Linh"
-        },
-        {
-          "name": "Luận"
+          "name": "Luận Phạm"
         }
       ]
     },
@@ -757,10 +751,45 @@
           "name": "Kaity Yeung"
         },
         {
-          "name": "Nhan Tu (Bride)"
+          "name": "Bride"
         },
         {
-          "name": "Tu Nguyen (Groom)"
+          "name": "Groom"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "guests": [
+        {
+          "name": "Photograph team"
+        },
+        {
+          "name": "Photograph team"
+        },
+        {
+          "name": "Photograph team"
+        },
+        {
+          "name": "Photograph team"
+        },
+        {
+          "name": "Makeup Team"
+        },
+        {
+          "name": "Makeup Team"
+        },
+        {
+          "name": "Decor"
+        },
+        {
+          "name": "Decor"
+        },
+        {
+          "name": "Decor"
+        },
+        {
+          "name": "Decor"
         }
       ]
     },
@@ -768,31 +797,31 @@
       "number": 24,
       "guests": [
         {
-          "name": "Ba Giang"
+          "name": "Long Nguyen (Ba Giang)"
         },
         {
-          "name": "Mẹ Giang"
+          "name": "Thanh Van Huynh (Mẹ Giang)"
         },
         {
-          "name": "Thảo"
+          "name": "Sophie Thảo Nguyen"
         },
         {
-          "name": "Kevin"
+          "name": "Kevin Hariyanto"
         },
         {
-          "name": "Hailey"
+          "name": "Hailey Hariyanto"
         },
         {
-          "name": "Hazel"
+          "name": "Hazel Hariyanto"
         },
         {
-          "name": "Chị Lily"
+          "name": "Chị Lily Phan"
         },
         {
           "name": "Anh Lực Phan"
         },
         {
-          "name": "Liam"
+          "name": "Liam Phan"
         },
         {
           "name": "Cô Sương Đặng"
@@ -800,69 +829,31 @@
       ]
     },
     {
-      "number": 25,
-      "guests": [
-        {
-          "name": "Photograph team"
-        },
-        {
-          "name": "Photograph team"
-        },
-        {
-          "name": "Photograph team"
-        },
-        {
-          "name": "Photograph team"
-        },
-        {
-          "name": "Makeup Team"
-        },
-        {
-          "name": "Makeup Team"
-        },
-        {
-          "name": "Decor"
-        },
-        {
-          "name": "Decor"
-        },
-        {
-          "name": "Decor"
-        },
-        {
-          "name": "Decor"
-        }
-      ]
-    },
-    {
       "number": 26,
       "guests": [
         {
-          "name": "Trâm"
+          "name": "Chị Trâm Bùi"
         },
         {
-          "name": "Chị Cúc"
+          "name": "Chị Cúc Nguyễn, Thiên"
         },
         {
-          "name": "Thiên"
+          "name": "Cô Thu mẹ chị Cúc"
         },
         {
-          "name": "Mẹ chị Cúc"
+          "name": "Chị Phượng Ha"
         },
         {
-          "name": "Chị Phượng"
-        },
-        {
-          "name": "Mẹ anh Lân"
+          "name": "Cô Dung (mẹ anh Lân)"
         },
         {
           "name": "Lân"
         },
         {
-          "name": "Chị Hạ"
+          "name": "Chị Hạ Đặng"
         },
         {
-          "name": "Anh Minh"
+          "name": "Anh Minh Luong"
         },
         {
           "name": "Divina Luong"
@@ -876,10 +867,10 @@
       "number": 28,
       "guests": [
         {
-          "name": "Linh"
+          "name": "Linh Huynh"
         },
         {
-          "name": "PKH"
+          "name": "Patrick Huynh"
         },
         {
           "name": "Samantha Bui"
@@ -891,16 +882,16 @@
           "name": "Co Lina"
         },
         {
-          "name": "Thành"
+          "name": "Thành Trần (Darien)"
         },
         {
-          "name": "Châu"
+          "name": "Châu Jason Le"
         },
         {
-          "name": "Vợ Châu"
+          "name": "Jun Dang"
         },
         {
-          "name": "Vivian"
+          "name": "Vivian Meng"
         },
         {
           "name": "Selina Zhu"
