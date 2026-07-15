@@ -90,7 +90,7 @@ export function SeatingSearch({ tables, autoFocus = false }: SeatingSearchProps)
               exit={{ opacity: 0 }}
               className="font-body text-sm text-slate-gray/70"
             >
-              {guestCount} guests · {tables.length} tables — try typing your first name
+              Try typing your first name
             </motion.p>
           )}
 
